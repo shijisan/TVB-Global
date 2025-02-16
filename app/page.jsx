@@ -6,7 +6,7 @@ import HomeEmployees from "./components/Home/Employees";
 export default function Home() {
 	return (
 		<>
-		<main className="bg-neutral-100 pattern">
+		<main className="bg-neutral-100 pattern w-full">
 			<HomeHeader />
 			<HomeAbout />
 			<HomeCeo />

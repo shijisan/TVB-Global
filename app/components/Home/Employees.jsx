@@ -38,9 +38,9 @@ export default function HomeEmployees() {
 
     return (
         <section className="w-full">
-            <div className="max-w-6xl w-full flex md:flex-row flex-col mx-auto min-h-[70vh]">
+            <div className="max-w-6xl w-full flex md:flex-row flex-col mx-auto md:min-h-[70vh] min-h-screen  md:pt-0 pt-[10vh]">
                 {/* Swiper for Employee Images */}
-                <div className="md:w-1/2 w-full flex justify-center items-center">
+                <div className="md:w-1/2 w-full flex justify-center items-center overflow-x-hidden">
                     <Swiper
                         effect="cards"
                         grabCursor={true}
@@ -51,14 +51,14 @@ export default function HomeEmployees() {
                     >
                         {employees.map((employee, index) => (
                             <SwiperSlide key={index} className="flex justify-center items-center">
-                                <img src={employee.image} alt={employee.name} className="rounded-lg shadow-lg w-full h-full object-cover md:overflow-hidden" />
+                                <img src={employee.image} alt={employee.name} className="rounded-lg shadow-lg w-full h-full object-cover" />
                             </SwiperSlide>
                         ))}
                     </Swiper>
                 </div>
 
                 {/* Employee Details */}
-                <div className="md:w-1/2 w-full flex flex-col justify-center px-4 text-start md:mt-0 mt-8">
+                <div className="md:w-1/2 w-full flex flex-col justify-center px-4 text-start md:pt-0 pt-8">
                     <h1 className="text-4xl font-semibold poppins mb-6">Meet Our Team</h1>
                     <h2 className="text-2xl font-medium poppins">{employees[activeIndex].name}</h2>
                     <h3 className="text-xl poppins text-gray-400">{employees[activeIndex].role}</h3>

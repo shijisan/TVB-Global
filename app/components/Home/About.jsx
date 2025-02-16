@@ -68,7 +68,7 @@ export default function HomeAbout() {
 
     return (
         <section className="w-full">
-            <div className="max-w-6xl w-full flex md:flex-row flex-col mx-auto min-h-[70vh]">
+            <div className="max-w-6xl w-full flex md:flex-row flex-col mx-auto md:min-h-[70vh] min-h-screen">
 
                 <div className="md:w-1/2 w-full">
                     <h1 className="my-8 text-4xl font-semibold poppins text-center">COMPANY HISTORY</h1>
@@ -91,7 +91,7 @@ export default function HomeAbout() {
                 </div>
 
 
-                <div className="md:w-1/2 w-full flex flex-col justify-center px-4 md:text-end text-center">
+                <div className="md:w-1/2 w-full flex flex-col justify-center px-4 md:text-end text-center md:flex-grow-0 flex-grow">
                     <Swiper
                         slidesPerView={1}
                         effect="fade"
