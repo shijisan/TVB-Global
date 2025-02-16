@@ -10,6 +10,8 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        mustard: "#e2ab5b",
+        maroon: "rgb(51, 9, 16)",
       },
     },
   },
