@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -19,4 +13,78 @@ model Admin {
   origin    String   @default("root")
   password  String
   createdAt DateTime @default(now())
+}
+
+model Application {
+  id             Int      @id @default(autoincrement())
+  email          String
+  batchId        Int
+  fbAccountLink  String
+  proofOfPayment String
+  status         String   @default("pending")
+  createdAt      DateTime @default(now())
+  Batch          Batch    @relation(fields: [batchId], references: [id])
+}
+
+model Batch {
+  id            Int             @id @default(autoincrement())
+  name          String
+  teacher       String
+  startDate     DateTime
+  studentCount  Int             @default(0)
+  maxStudents   Int
+  courseId      Int
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime
+  durationDays  Int
+  durationHours Int
+  Application   Application[]
+  Course        Course          @relation(fields: [courseId], references: [id])
+  Certificate   Certificate[]
+  StudentCourse StudentCourse[]
+}
+
+model Certificate {
+  id        Int      @id @default(autoincrement())
+  courseId  Int
+  uniqueID  String   @unique
+  createdAt DateTime @default(now())
+  batchId   Int?
+  studentId Int?
+  Batch     Batch?   @relation(fields: [batchId], references: [id])
+  Course    Course   @relation(fields: [courseId], references: [id])
+  Student   Student? @relation(fields: [studentId], references: [id])
+}
+
+model Course {
+  id            Int             @id @default(autoincrement())
+  name          String          @unique
+  description   String
+  price         Float
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime
+  Batch         Batch[]
+  Certificate   Certificate[]
+  StudentCourse StudentCourse[]
+}
+
+model Student {
+  id            Int             @id @default(autoincrement())
+  name          String
+  email         String          @unique
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime
+  Certificate   Certificate[]
+  StudentCourse StudentCourse[]
+}
+
+model StudentCourse {
+  studentId Int
+  courseId  Int
+  batchId   Int?
+  Batch     Batch?  @relation(fields: [batchId], references: [id])
+  Course    Course  @relation(fields: [courseId], references: [id])
+  Student   Student @relation(fields: [studentId], references: [id])
+
+  @@id([studentId, courseId])
 }

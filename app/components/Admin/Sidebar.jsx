@@ -9,6 +9,9 @@ export default function AdminSidebar() {
                 <li className="block w-full text-center">
                     <a className="w-full h-full block py-4 hover:backdrop-brightness-90 transition-all hover:text-mustard" href="/admin/admins">Admins</a>
                 </li>
+                <li className="block w-full text-center">
+                    <a className="w-full h-full block py-4 hover:backdrop-brightness-90 transition-all hover:text-mustard" href="/admin/courses">Courses</a>
+                </li>
             </ul>
         </aside>
         </>

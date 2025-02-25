@@ -40,5 +40,9 @@ body {
 
   .btn-destructive{
     @apply rounded text-sm font-medium poppins bg-red-500 hover:brightness-[103%] transition-all py-2 px-4 hover:cursor-pointer drop-shadow text-white inline-flex justify-center items-center;
+  
   }
-}
+
+  .btn-link{
+    @apply rounded text-sm font-medium poppins bg-blue-500 hover:brightness-[103%] transition-all py-2 px-4 hover:cursor-pointer drop-shadow text-white inline-flex justify-center items-center;
+  }}

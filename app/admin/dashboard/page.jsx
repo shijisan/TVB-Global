@@ -1,5 +1,5 @@
 import AdminSidebar from "@/app/components/Admin/Sidebar";
-import AdminCard from "@/app/components/Admin/AdminCard";
+import AdminCard from "@/app/components/Card";
 import LogoutButton from "@/app/components/Admin/Logout";
 
 export default function AdminDashboard() {
